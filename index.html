@@ -18,10 +18,10 @@
 
         body {
             font-family: 'Space Mono', monospace;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #e8ebf0 0%, #a8b5c8 100%);
             min-height: 100vh;
             padding: 20px;
-            color: #2c3e50;
+            color: #1a252f;
             overflow-x: hidden;
         }
 
@@ -38,7 +38,7 @@
 
         .header h1 {
             font-size: 2.5rem;
-            color: #2c3e50;
+            color: #1a252f;
             margin-bottom: 10px;
             font-weight: 700;
             display: flex;
@@ -55,24 +55,24 @@
 
         .header p {
             font-size: 1rem;
-            color: #546e7a;
+            color: #3d4f5f;
             font-weight: 400;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 25px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 16px rgba(31, 38, 135, 0.2);
+            box-shadow: 0 4px 16px rgba(20, 30, 40, 0.25);
             will-change: transform;
         }
 
         .morse-info h3 {
             font-size: 1.2rem;
-            color: #34495e;
+            color: #1a252f;
             margin-bottom: 15px;
             font-weight: 700;
             display: flex;
@@ -89,7 +89,7 @@
         .morse-info p {
             font-size: 0.9rem;
             line-height: 1.6;
-            color: #546e7a;
+            color: #3d4f5f;
             margin-bottom: 10px;
         }
 
@@ -101,17 +101,17 @@
         }
 
         .element {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
             padding: 10px 15px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             font-size: 0.85rem;
             flex: 1;
             min-width: 120px;
         }
 
         .element strong {
-            color: #2c3e50;
+            color: #1a252f;
         }
 
         .controls {
@@ -132,7 +132,7 @@
 
         .wpm-control label {
             font-weight: 700;
-            color: #2c3e50;
+            color: #1a252f;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -146,27 +146,91 @@
 
         .wpm-control select {
             padding: 12px 18px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             font-size: 0.9rem;
             font-family: 'Space Mono', monospace;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(5px);
             cursor: pointer;
             transition: all 0.3s ease;
-            color: #2c3e50;
+            color: #1a252f;
         }
 
         .wpm-control select:hover {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(20, 30, 40, 0.35);
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            color: #1a252f;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 8px rgba(20, 30, 40, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(20, 30, 40, 0.35);
+            background: rgba(255, 255, 255, 0.85);
             border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 12px rgba(31, 38, 135, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(20, 30, 40, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5dade2 0%, #3498db 100%);
+            border-color: rgba(52, 152, 219, 0.5);
+            box-shadow: 0 6px 16px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+            color: white;
+            border: 1px solid rgba(149, 165, 166, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
+            border-color: rgba(149, 165, 166, 0.5);
+            box-shadow: 0 6px 16px rgba(149, 165, 166, 0.4);
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
         }
 
         .morse-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
             margin-bottom: 40px;
         }
 
@@ -174,11 +238,11 @@
             display: flex;
             align-items: center;
             padding: 15px;
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.18);
             backdrop-filter: blur(10px);
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 16px rgba(31, 38, 135, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 16px rgba(20, 30, 40, 0.25);
             transition: all 0.3s ease;
             cursor: pointer;
             will-change: transform;
@@ -186,30 +250,30 @@
 
         .morse-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(31, 38, 135, 0.3);
-            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 6px 20px rgba(20, 30, 40, 0.35);
+            background: rgba(255, 255, 255, 0.25);
         }
 
         .morse-item.playing {
-            background: rgba(52, 152, 219, 0.3);
-            border-color: rgba(52, 152, 219, 0.5);
+            background: rgba(52, 152, 219, 0.25);
+            border-color: rgba(52, 152, 219, 0.4);
             transform: scale(1.02);
         }
 
         .character-box {
-            width: 45px;
-            height: 45px;
-            background: rgba(44, 62, 80, 0.8);
+            width: 40px;
+            height: 40px;
+            background: rgba(26, 37, 47, 0.85);
             backdrop-filter: blur(5px);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             border-radius: 8px;
-            margin-right: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-right: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             flex-shrink: 0;
         }
 
@@ -219,10 +283,10 @@
         }
 
         .morse-code {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 8px;
+            color: #1a252f;
+            margin-bottom: 6px;
             font-family: 'Space Mono', monospace;
         }
 
@@ -231,10 +295,10 @@
         }
 
         .morse-phrase {
-            font-size: 0.8rem;
-            color: #7f8c8d;
+            font-size: 0.75rem;
+            color: #5a6c7d;
             font-style: italic;
-            min-height: 20px;
+            min-height: 18px;
         }
 
         .morse-phrase u {
@@ -247,16 +311,54 @@
             color: #34495e;
         }
 
+        .aviation-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 16px rgba(20, 30, 40, 0.25);
+            transition: all 0.3s ease;
+            will-change: transform;
+        }
+
+        .aviation-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(20, 30, 40, 0.35);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .aviation-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .aviation-phonetic {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a252f;
+            margin-bottom: 4px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .aviation-letter {
+            font-size: 0.8rem;
+            color: #5a6c7d;
+            font-weight: 400;
+        }
+
         .play-icon {
-            margin-left: 10px;
+            margin-left: 8px;
             opacity: 0.6;
             transition: opacity 0.3s ease;
             flex-shrink: 0;
         }
 
         .play-icon svg {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
         }
 
         .morse-item:hover .play-icon {
@@ -265,7 +367,7 @@
 
         .section-title {
             font-size: 1.5rem;
-            color: #2c3e50;
+            color: #1a252f;
             margin: 40px 0 20px 0;
             text-align: center;
             font-weight: 700;
@@ -281,108 +383,12 @@
             flex-shrink: 0;
         }
 
-        /* Translator Section */
-        .translator-section {
-            margin-bottom: 40px;
-        }
-
-        .translator-container {
-            display: flex;
-            gap: 30px;
-            align-items: stretch;
-        }
-
-        .translator-box {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .translator-box label {
-            display: block;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-
-        .translator-box textarea {
-            width: 100%;
-            height: 150px;
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-            color: #2c3e50;
-            resize: vertical;
-            transition: all 0.3s ease;
-        }
-
-        .translator-box textarea:focus {
-            outline: none;
-            border-color: rgba(52, 152, 219, 0.5);
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-        }
-
-        .translator-controls {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 10px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
-        }
-
-        .btn-primary {
-            background: rgba(52, 152, 219, 0.8);
-            color: white;
-            border: 1px solid rgba(52, 152, 219, 0.5);
-        }
-
-        .btn-primary:hover {
-            background: rgba(52, 152, 219, 0.9);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.8);
-            color: #2c3e50;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(31, 38, 135, 0.2);
-        }
-
-        .btn svg {
-            width: 16px;
-            height: 16px;
-        }
-
         .audio-status {
             position: fixed;
             top: 20px;
             right: 20px;
             padding: 10px 20px;
-            background: rgba(46, 204, 113, 0.9);
+            background: rgba(46, 204, 113, 0.85);
             backdrop-filter: blur(10px);
             color: white;
             border-radius: 25px;
@@ -391,7 +397,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: 1000;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .audio-status.show {
@@ -402,20 +408,228 @@
             text-align: center;
             margin-top: 60px;
             padding: 20px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(5px);
             border-radius: 20px 20px 0 0;
         }
 
         .footer p {
             font-size: 1rem;
-            color: #546e7a;
+            color: #3d4f5f;
             font-weight: 700;
             letter-spacing: 1px;
         }
 
-        /* Mobile Optimizations */
+        /* Practice Mode Styles */
+        .practice-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e8ebf0 0%, #a8b5c8 100%);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .practice-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(20, 30, 40, 0.3);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .practice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .practice-header h2 {
+            font-size: 2rem;
+            color: #1a252f;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .practice-stats {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .practice-stats span {
+            font-size: 1rem;
+            color: #1a252f;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .practice-content {
+            margin-bottom: 40px;
+        }
+
+        .practice-morse-display {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a252f;
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 40px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .practice-input-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .practice-input-section label {
+            font-size: 1.2rem;
+            color: #1a252f;
+            font-weight: 700;
+        }
+
+        .practice-input-section input {
+            width: 80px;
+            height: 50px;
+            font-size: 1.5rem;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #1a252f;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            text-transform: uppercase;
+            backdrop-filter: blur(5px);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .practice-input-section input:focus {
+            border-color: rgba(52, 152, 219, 0.6);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .practice-completion {
+            text-align: center;
+        }
+
+        .practice-completion h3 {
+            font-size: 2.5rem;
+            color: #1a252f;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .practice-completion p {
+            font-size: 1.2rem;
+            color: #3d4f5f;
+            margin-bottom: 30px;
+        }
+
+        .practice-header .btn-secondary {
+            display: inline-flex;
+        }
+
+        .practice-completion-active .practice-header .btn-secondary {
+            display: none;
+        }
+
+        .practice-feedback {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2100;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .practice-feedback.correct {
+            background: rgba(46, 204, 113, 0.3);
+            opacity: 1;
+        }
+
+        .practice-feedback.incorrect {
+            background: rgba(231, 76, 60, 0.3);
+            opacity: 1;
+        }
+
+        /* Desktop Responsive */
+        @media (min-width: 1025px) {
+            .practice-container {
+                max-width: 700px;
+            }
+            
+            .practice-morse-display {
+                font-size: 4rem;
+                min-height: 100px;
+            }
+            
+            /* Desktop Responsive */
+            .practice-input-section input {
+                width: 55px;
+                height: 38px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Tablet Responsive */
+        @media (max-width: 1024px) {
+            .morse-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+            
+            .practice-container {
+                padding: 30px;
+                max-width: 500px;
+            }
+            
+            .practice-morse-display {
+                font-size: 3rem;
+                min-height: 70px;
+            }
+            
+            .practice-input-section input {
+                width: 90px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -442,8 +656,8 @@
             }
             
             .morse-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
             }
             
             .controls {
@@ -468,27 +682,13 @@
             }
 
             .morse-code {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .character-box {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-
-            .translator-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .translator-controls {
-                justify-content: center;
-            }
-
-            .btn {
-                padding: 10px 15px;
-                font-size: 0.8rem;
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
             }
 
             .audio-status {
@@ -502,6 +702,67 @@
                 font-size: 1.3rem;
                 margin: 30px 0 15px 0;
             }
+            
+            /* Practice Mode Mobile */
+            .practice-container {
+                padding: 20px;
+                margin: 10px;
+                max-width: calc(100vw - 20px);
+            }
+            
+            .practice-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .practice-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .practice-stats {
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .practice-stats span {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+            
+            .practice-morse-display {
+                font-size: 2.5rem;
+                min-height: 60px;
+                padding: 15px;
+            }
+            
+            .practice-input-section input {
+                width: 60px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .practice-input-section label {
+                font-size: 1rem;
+            }
+            
+            .practice-completion h3 {
+                font-size: 2rem;
+            }
+            
+            .practice-completion p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .btn svg {
+                width: 14px;
+                height: 14px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -509,35 +770,64 @@
                 font-size: 1.8rem;
             }
 
+            .morse-grid {
+                grid-template-columns: 1fr;
+            }
+
             .morse-item {
                 padding: 12px;
             }
 
             .morse-code {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
             .character-box {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
                 margin-right: 10px;
-            }
-
-            .translator-box textarea {
-                height: 120px;
-                font-size: 0.8rem;
             }
 
             .controls {
                 padding: 10px;
             }
+            
+            /* Extra Small Mobile Practice */
+            .practice-container {
+                padding: 15px;
+                margin: 5px;
+            }
+            
+            .practice-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .practice-morse-display {
+                font-size: 2rem;
+                min-height: 50px;
+                padding: 10px;
+            }
+            
+            .practice-input-section input {
+                width: 70px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            .practice-completion h3 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
         }
 
         /* Performance optimizations */
         .morse-item,
-        .glass-card,
-        .btn {
+        .glass-card {
             contain: layout style;
         }
 
@@ -597,13 +887,19 @@
                 </label>
                 <select id="wpm">
                     <option value="5">5 WPM - Beginner Friendly</option>
-                    <option value="12" selected>12 WPM - Casual Use</option>
-                    <option value="15">15 WPM - Amateur Radio</option>
+                    <option value="12">12 WPM - Casual Use</option>
+                    <option value="15" selected>15 WPM - Amateur Radio</option>
                     <option value="20">20 WPM - Military/Maritime</option>
                     <option value="25">25 WPM - Experienced</option>
                     <option value="30">30+ WPM - Contest Speed</option>
                 </select>
             </div>
+            <button class="btn btn-primary" id="practiceBtn" onclick="startPractice()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 11H1v6h8v2l8-5-8-5v2z"/>
+                </svg>
+                Practice
+            </button>
         </div>
 
         <div class="section-title">
@@ -634,71 +930,62 @@
         <div class="morse-grid" id="numbers-grid">
             <!-- Numbers will be populated by JavaScript -->
         </div>
-    </div>
 
-    <div class="section-title">
+        <div class="section-title">
             <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 7h16M4 12h16M4 17h16"/>
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
             </svg>
-            Text Translator
+            Aviation Alphabet (NATO Phonetic)
+        </div>
+        <div class="morse-grid" id="aviation-grid">
+            <!-- Aviation alphabet will be populated by JavaScript -->
+        </div>
     </div>
 
-        <div class="translator-section glass-card">
-            <div class="translator-container">
-                <div class="translator-box">
-                    <label for="textInput">Text</label>
-                    <textarea id="textInput" placeholder="Enter your text here..."></textarea>
-                    <div class="translator-controls">
-                        <button class="btn btn-primary" onclick="translateToMorse()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                            To Morse
-                        </button>
-                        <button class="btn btn-secondary" onclick="playTranslatedMorse()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Play
-                        </button>
-                        <button class="btn btn-secondary" onclick="clearText()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-                            </svg>
-                            Clear
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="translator-box">
-                    <label for="morseInput">Morse Code</label>
-                    <textarea id="morseInput" placeholder="Enter morse code here... (use . for dots and - for dashes)"></textarea>
-                    <div class="translator-controls">
-                        <button class="btn btn-primary" onclick="translateToText()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M19 12H5M12 19l-7-7 7-7"/>
-                            </svg>
-                            To Text
-                        </button>
-                        <button class="btn btn-secondary" onclick="playMorseInput()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Play
-                        </button>
-                        <button class="btn btn-secondary" onclick="clearMorse()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-                            </svg>
-                            Clear
-                        </button>
-                    </div>
+    <!-- Practice Mode Screen -->
+    <div class="practice-screen" id="practiceScreen" style="display: none;">
+        <div class="practice-container">
+            <div class="practice-header">
+                <h2>Practice Mode</h2>
+                <div class="practice-stats">
+                    <span id="practiceProgress">0/26</span>
+                    <button class="btn btn-secondary" onclick="exitPractice()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                        Exit
+                    </button>
                 </div>
             </div>
+            
+            <div class="practice-content">
+                <div class="practice-morse-display" id="practiceMorseDisplay">
+                    <!-- Morse code will be displayed here -->
+                </div>
+                
+                <div class="practice-input-section">
+                    <label for="practiceInput">What letter is this?</label>
+                    <input type="text" id="practiceInput" maxlength="1" placeholder="?" autocomplete="off">
+                    <button class="btn btn-primary" onclick="submitAnswer()">Submit</button>
+                </div>
+            </div>
+            
+            <div class="practice-completion" id="practiceCompletion" style="display: none;">
+                <h3>🎉 That's All Letters in Morse!</h3>
+                <p>Practise often to master the language of Dots and Dashes.</p>
+                <button class="btn btn-primary" onclick="exitPractice()">Continue Learning</button>
+            </div>
         </div>
+    </div>
+
+    <!-- Practice Feedback Overlay -->
+    <div class="practice-feedback" id="practiceFeedback"></div>
 
     <div class="footer">
-        <p>alvin.fun</p>
+        <p>alvinunleashed.studio</p>
     </div>
 
     <div class="audio-status" id="audio-status">[>]</div>
@@ -714,11 +1001,6 @@
             '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...', 
             '8': '---..', '9': '----.', ' ': '/'
         };
-
-        // Reverse mapping for morse to text
-        const textCode = Object.fromEntries(
-            Object.entries(morseCode).map(([key, value]) => [value, key])
-        );
 
         // Learning phrases
         const learningPhrases = {
@@ -749,6 +1031,184 @@
             'Y': '<u>Your</u>.a.<u>cool</u>.<u>dude</u>',
             'Z': '<u>Zing</u>.<u>Zang</u>.zo.zo',
         };
+
+        // Aviation alphabet mappings
+        const aviationAlphabet = {
+            'A': 'ALPHA', 'B': 'BRAVO', 'C': 'CHARLIE', 'D': 'DELTA', 'E': 'ECHO', 'F': 'FOXTROT',
+            'G': 'GOLF', 'H': 'HOTEL', 'I': 'INDIA', 'J': 'JULIET', 'K': 'KILO', 'L': 'LIMA',
+            'M': 'MIKE', 'N': 'NOVEMBER', 'O': 'OSCAR', 'P': 'PAPA', 'Q': 'QUEBEC', 'R': 'ROMEO',
+            'S': 'SIERRA', 'T': 'TANGO', 'U': 'UNIFORM', 'V': 'VICTOR', 'W': 'WHISKEY', 'X': 'X-RAY',
+            'Y': 'YANKEE', 'Z': 'ZULU'
+        };
+
+        function createAviationItem(character) {
+            const item = document.createElement('div');
+            item.className = 'aviation-item';
+            
+            const phonetic = aviationAlphabet[character];
+            
+            item.innerHTML = `
+                <div class="character-box">${character}</div>
+                <div class="aviation-content">
+                    <div class="aviation-phonetic">${phonetic}</div>
+                    <div class="aviation-letter">Letter ${character}</div>
+                </div>
+            `;
+            
+            return item;
+        }
+
+        // Practice Mode Variables
+        let practiceMode = false;
+        let practiceLetters = [];
+        let incorrectLetters = [];
+        let currentLetter = '';
+        let practiceProgress = 0;
+
+        function startPractice() {
+            practiceMode = true;
+            practiceLetters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+            incorrectLetters = [];
+            practiceProgress = 0;
+            
+            // Hide main content
+            document.querySelector('.container').style.display = 'none';
+            document.querySelector('.footer').style.display = 'none';
+            
+            // Show practice screen
+            document.getElementById('practiceScreen').style.display = 'flex';
+            document.getElementById('practiceCompletion').style.display = 'none';
+            
+            // Shuffle the letters array
+            shuffleArray(practiceLetters);
+            
+            // Start first question
+            nextQuestion();
+        }
+
+        function exitPractice() {
+            practiceMode = false;
+            currentLetter = '';
+            
+            // Show main content
+            document.querySelector('.container').style.display = 'block';
+            document.querySelector('.footer').style.display = 'block';
+            
+            // Hide practice screen
+            document.getElementById('practiceScreen').style.display = 'none';
+            
+            // Clear input
+            document.getElementById('practiceInput').value = '';
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function nextQuestion() {
+            if (practiceLetters.length === 0) {
+                if (incorrectLetters.length > 0) {
+                    // Add incorrect letters back to practice
+                    practiceLetters = [...incorrectLetters];
+                    incorrectLetters = [];
+                    shuffleArray(practiceLetters);
+                } else {
+                    // All letters completed correctly
+                    showCompletion();
+                    return;
+                }
+            }
+            
+            // Get next letter
+            currentLetter = practiceLetters.shift();
+            
+            // Update progress
+            updateProgress();
+            
+            // Display morse code and play sound
+            const morseCode = getMorseCode(currentLetter);
+            document.getElementById('practiceMorseDisplay').textContent = morseCode;
+            
+            // Clear input and focus
+            const input = document.getElementById('practiceInput');
+            input.value = '';
+            input.focus();
+            
+            // Play the morse code
+            setTimeout(() => {
+                playMorseCode(morseCode);
+            }, 500);
+        }
+
+        function getMorseCode(letter) {
+            const morseMap = {
+                'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
+                'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
+                'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
+                'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+                'Y': '-.--', 'Z': '--..'
+            };
+            return morseMap[letter] || '';
+        }
+
+        function updateProgress() {
+            const totalAnswered = 26 - practiceLetters.length - incorrectLetters.length;
+            document.getElementById('practiceProgress').textContent = `${totalAnswered}/26`;
+        }
+
+        function submitAnswer() {
+            const userInput = document.getElementById('practiceInput').value.toUpperCase().trim();
+            
+            if (!userInput) {
+                return;
+            }
+            
+            const feedback = document.getElementById('practiceFeedback');
+            
+            if (userInput === currentLetter) {
+                // Correct answer
+                showFeedback('correct');
+                practiceProgress++;
+            } else {
+                // Incorrect answer
+                showFeedback('incorrect');
+                incorrectLetters.push(currentLetter);
+            }
+            
+            // Move to next question after feedback
+            setTimeout(() => {
+                nextQuestion();
+            }, 1000);
+        }
+
+        function showFeedback(type) {
+            const feedback = document.getElementById('practiceFeedback');
+            feedback.className = `practice-feedback ${type}`;
+            
+            setTimeout(() => {
+                feedback.className = 'practice-feedback';
+            }, 500);
+        }
+
+        function showCompletion() {
+            document.getElementById('practiceCompletion').style.display = 'block';
+            document.querySelector('.practice-content').style.display = 'none';
+        }
+
+        // Add Enter key support for practice input
+        document.addEventListener('DOMContentLoaded', () => {
+            // ... existing code ...
+            
+            // Add event listener for practice input
+            document.addEventListener('keydown', (e) => {
+                if (practiceMode && e.key === 'Enter') {
+                    submitAnswer();
+                }
+            });
+        });
 
         // Audio context for generating morse code sounds
         let audioContext;
@@ -831,75 +1291,6 @@
             oscillator.stop(startTime + duration);
         }
 
-        // Translator functions
-        function translateToMorse() {
-            const textInput = document.getElementById('textInput');
-            const morseInput = document.getElementById('morseInput');
-            const text = textInput.value.toUpperCase();
-            
-            let morse = '';
-            for (let char of text) {
-                if (morseCode[char]) {
-                    morse += morseCode[char] + ' ';
-                } else if (char === ' ') {
-                    morse += '/ ';
-                } else {
-                    morse += '? '; // Unknown character
-                }
-            }
-            
-            morseInput.value = morse.trim();
-        }
-
-        function translateToText() {
-            const textInput = document.getElementById('textInput');
-            const morseInput = document.getElementById('morseInput');
-            const morse = morseInput.value.trim();
-            
-            let text = '';
-            const words = morse.split(' / ');
-            
-            for (let i = 0; i < words.length; i++) {
-                const letters = words[i].split(' ');
-                for (let letter of letters) {
-                    if (letter && textCode[letter]) {
-                        text += textCode[letter];
-                    } else if (letter && letter !== '') {
-                        text += '?'; // Unknown morse code
-                    }
-                }
-                if (i < words.length - 1) {
-                    text += ' ';
-                }
-            }
-            
-            textInput.value = text;
-        }
-
-        function playTranslatedMorse() {
-            const morseInput = document.getElementById('morseInput');
-            const morse = morseInput.value.trim();
-            if (morse) {
-                playMorseCode(morse);
-            }
-        }
-
-        function playMorseInput() {
-            const morseInput = document.getElementById('morseInput');
-            const morse = morseInput.value.trim();
-            if (morse) {
-                playMorseCode(morse);
-            }
-        }
-
-        function clearText() {
-            document.getElementById('textInput').value = '';
-        }
-
-        function clearMorse() {
-            document.getElementById('morseInput').value = '';
-        }
-
         function createMorseItem(character) {
             const item = document.createElement('div');
             item.className = 'morse-item';
@@ -941,57 +1332,24 @@
             for (let i = 0; i <= 9; i++) {
                 numbersGrid.appendChild(createMorseItem(i.toString()));
             }
+
+            // Populate aviation alphabet A-Z
+            const aviationGrid = document.getElementById('aviation-grid');
+            for (let i = 65; i <= 90; i++) {
+                const letter = String.fromCharCode(i);
+                aviationGrid.appendChild(createAviationItem(letter));
+            }
         }
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             populateGrids();
-            
-            // Add real-time translation
-            const textInput = document.getElementById('textInput');
-            const morseInput = document.getElementById('morseInput');
-            
-            textInput.addEventListener('input', () => {
-                if (textInput.value.trim() === '') {
-                    morseInput.value = '';
-                }
-            });
-            
-            morseInput.addEventListener('input', () => {
-                if (morseInput.value.trim() === '') {
-                    textInput.value = '';
-                }
-            });
         });
 
         // Handle audio context resume for browsers that require user interaction
         document.addEventListener('click', () => {
             if (audioContext && audioContext.state === 'suspended') {
                 audioContext.resume();
-            }
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey || e.metaKey) {
-                switch(e.key) {
-                    case 'Enter':
-                        e.preventDefault();
-                        if (document.activeElement === document.getElementById('textInput')) {
-                            translateToMorse();
-                        } else if (document.activeElement === document.getElementById('morseInput')) {
-                            translateToText();
-                        }
-                        break;
-                    case 'p':
-                        e.preventDefault();
-                        if (document.activeElement === document.getElementById('textInput')) {
-                            playTranslatedMorse();
-                        } else if (document.activeElement === document.getElementById('morseInput')) {
-                            playMorseInput();
-                        }
-                        break;
-                }
             }
         });
 
