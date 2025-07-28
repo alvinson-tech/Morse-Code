@@ -19,10 +19,29 @@
         body {
             font-family: 'Space Mono', monospace;
             background: linear-gradient(135deg, #e8ebf0 0%, #a8b5c8 100%);
+            background-attachment: fixed;
             min-height: 100vh;
             padding: 20px;
             color: #1a252f;
             overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(26, 37, 47, 0.10) 2px, transparent 2px),
+                radial-gradient(circle at 80% 20%, rgba(26, 37, 47, 0.10) 2px, transparent 2px),
+                radial-gradient(circle at 20% 80%, rgba(26, 37, 47, 0.10) 2px, transparent 2px),
+                radial-gradient(circle at 80% 80%, rgba(26, 37, 47, 0.10) 2px, transparent 2px);
+            background-size: 80px 80px, 80px 80px, 80px 80px, 80px 80px, 60px 60px, 60px 60px;
+            background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
@@ -54,29 +73,26 @@
         }
 
         .header p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #3d4f5f;
-            font-weight: 400;
+            font-weight: 500;
+            margin-bottom: 20px;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 25px;
+        /* Direct info display without containers */
+        .morse-info {
+            text-align: center;
             margin-bottom: 30px;
-            box-shadow: 0 4px 16px rgba(20, 30, 40, 0.25);
-            will-change: transform;
         }
 
         .morse-info h3 {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: #1a252f;
             margin-bottom: 15px;
             font-weight: 700;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
         }
 
@@ -87,39 +103,55 @@
         }
 
         .morse-info p {
-            font-size: 0.9rem;
+            font-size: 1rem;
             line-height: 1.6;
             color: #3d4f5f;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .morse-elements {
             display: flex;
             gap: 20px;
-            margin-top: 15px;
+            margin: 20px auto;
             flex-wrap: wrap;
+            justify-content: center;
+            max-width: 600px;
         }
 
         .element {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 15px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
             flex: 1;
-            min-width: 120px;
+            min-width: 160px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(20, 30, 40, 0.15);
+            transition: transform 0.2s ease;
+        }
+
+        .element:hover {
+            transform: translateY(-2px);
         }
 
         .element strong {
             color: #1a252f;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1rem;
         }
 
+        /* Optimized controls */
         .controls {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
-            padding: 20px;
+            padding: 30px 0;
             flex-wrap: wrap;
         }
 
@@ -136,6 +168,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 1rem;
         }
 
         .speed-icon {
@@ -146,24 +179,24 @@
 
         .wpm-control select {
             padding: 12px 18px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 10px;
             font-size: 0.9rem;
             font-family: 'Space Mono', monospace;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.9);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             color: #1a252f;
+            box-shadow: 0 2px 8px rgba(20, 30, 40, 0.15);
         }
 
         .wpm-control select:hover {
-            background: rgba(255, 255, 255, 0.8);
-            border-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 12px rgba(20, 30, 40, 0.35);
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(20, 30, 40, 0.25);
         }
 
-        /* Button Styles */
+        /* Optimized Button Styles */
         .btn {
             padding: 12px 20px;
             border: none;
@@ -172,29 +205,26 @@
             font-family: 'Space Mono', monospace;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             text-decoration: none;
             outline: none;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.9);
             color: #1a252f;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 2px 8px rgba(20, 30, 40, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 8px rgba(20, 30, 40, 0.15);
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(20, 30, 40, 0.35);
-            background: rgba(255, 255, 255, 0.85);
-            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 16px rgba(20, 30, 40, 0.25);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .btn:active {
             transform: translateY(0);
-            box-shadow: 0 2px 8px rgba(20, 30, 40, 0.2);
         }
 
         .btn-primary {
@@ -205,8 +235,7 @@
 
         .btn-primary:hover {
             background: linear-gradient(135deg, #5dade2 0%, #3498db 100%);
-            border-color: rgba(52, 152, 219, 0.5);
-            box-shadow: 0 6px 16px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 6px 16px rgba(52, 152, 219, 0.3);
         }
 
         .btn-secondary {
@@ -217,8 +246,7 @@
 
         .btn-secondary:hover {
             background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
-            border-color: rgba(149, 165, 166, 0.5);
-            box-shadow: 0 6px 16px rgba(149, 165, 166, 0.4);
+            box-shadow: 0 6px 16px rgba(149, 165, 166, 0.3);
         }
 
         .btn svg {
@@ -227,35 +255,35 @@
             flex-shrink: 0;
         }
 
+        /* Optimized grid with better performance */
         .morse-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
             margin-bottom: 40px;
         }
 
+        /* Simplified morse items for better performance */
         .morse-item {
             display: flex;
             align-items: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(10px);
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 16px rgba(20, 30, 40, 0.25);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 8px rgba(20, 30, 40, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
             will-change: transform;
         }
 
         .morse-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(20, 30, 40, 0.35);
-            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 16px rgba(20, 30, 40, 0.25);
         }
 
         .morse-item.playing {
-            background: rgba(52, 152, 219, 0.25);
+            background: rgba(52, 152, 219, 0.15);
             border-color: rgba(52, 152, 219, 0.4);
             transform: scale(1.02);
         }
@@ -263,8 +291,7 @@
         .character-box {
             width: 40px;
             height: 40px;
-            background: rgba(26, 37, 47, 0.85);
-            backdrop-filter: blur(5px);
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
             color: white;
             display: flex;
             align-items: center;
@@ -272,9 +299,9 @@
             font-size: 1.1rem;
             font-weight: 700;
             border-radius: 8px;
-            margin-right: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-right: 15px;
             flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .morse-content {
@@ -283,7 +310,7 @@
         }
 
         .morse-code {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #1a252f;
             margin-bottom: 6px;
@@ -314,20 +341,17 @@
         .aviation-item {
             display: flex;
             align-items: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(10px);
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 16px rgba(20, 30, 40, 0.25);
-            transition: all 0.3s ease;
-            will-change: transform;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 8px rgba(20, 30, 40, 0.15);
+            transition: transform 0.2s ease;
         }
 
         .aviation-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(20, 30, 40, 0.35);
-            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 16px rgba(20, 30, 40, 0.25);
         }
 
         .aviation-content {
@@ -336,7 +360,7 @@
         }
 
         .aviation-phonetic {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #1a252f;
             margin-bottom: 4px;
@@ -350,31 +374,32 @@
         }
 
         .play-icon {
-            margin-left: 8px;
+            margin-left: 12px;
             opacity: 0.6;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease;
             flex-shrink: 0;
         }
 
         .play-icon svg {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
         }
 
         .morse-item:hover .play-icon {
             opacity: 1;
         }
 
+        /* Direct section titles */
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #1a252f;
-            margin: 40px 0 20px 0;
+            margin: 50px 0 25px 0;
             text-align: center;
             font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .section-icon {
@@ -388,16 +413,15 @@
             top: 20px;
             right: 20px;
             padding: 10px 20px;
-            background: rgba(46, 204, 113, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(46, 204, 113, 0.9);
             color: white;
             border-radius: 25px;
             font-weight: 700;
             font-size: 0.9rem;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease;
             z-index: 1000;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
         }
 
         .audio-status.show {
@@ -407,21 +431,18 @@
         .footer {
             text-align: center;
             margin-top: 60px;
-            padding: 20px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(5px);
-            border-radius: 20px 20px 0 0;
+            padding: 30px 0;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .footer p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #3d4f5f;
             font-weight: 700;
             letter-spacing: 1px;
         }
 
-        /* Practice Mode Styles */
+        /* Practice Mode Styles - Kept minimal for performance */
         .practice-screen {
             position: fixed;
             top: 0;
@@ -437,12 +458,11 @@
         }
 
         .practice-container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 40px;
-            box-shadow: 0 8px 32px rgba(20, 30, 40, 0.3);
+            box-shadow: 0 8px 32px rgba(20, 30, 40, 0.2);
             max-width: 600px;
             width: 100%;
             text-align: center;
@@ -475,11 +495,11 @@
             font-size: 1rem;
             color: #1a252f;
             font-weight: 700;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.7);
             padding: 8px 16px;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .practice-content {
@@ -496,11 +516,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 15px;
             padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .practice-input-section {
@@ -521,22 +541,22 @@
             height: 50px;
             font-size: 1.5rem;
             text-align: center;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
             border-radius: 12px;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             color: #1a252f;
             font-family: 'Space Mono', monospace;
             font-weight: 700;
             text-transform: uppercase;
-            backdrop-filter: blur(5px);
             outline: none;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .practice-input-section input:focus {
             border-color: rgba(52, 152, 219, 0.6);
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 1);
         }
 
         .practice-completion {
@@ -556,89 +576,38 @@
             margin-bottom: 30px;
         }
 
-        .practice-header .btn-secondary {
-            display: inline-flex;
-        }
-
-        .practice-completion-active .practice-header .btn-secondary {
-            display: none;
-        }
-
         .practice-feedback {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2100;
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 23px;
             pointer-events: none;
             transition: all 0.3s ease;
             opacity: 0;
+            border: 3px solid transparent;
+            z-index: 10;
         }
 
         .practice-feedback.correct {
-            background: rgba(46, 204, 113, 0.3);
+            border-color: #2ecc71;
             opacity: 1;
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
         }
 
         .practice-feedback.incorrect {
-            background: rgba(231, 76, 60, 0.3);
+            border-color: #e74c3c;
             opacity: 1;
-        }
-
-        /* Desktop Responsive */
-        @media (min-width: 1025px) {
-            .practice-container {
-                max-width: 700px;
-            }
-            
-            .practice-morse-display {
-                font-size: 4rem;
-                min-height: 100px;
-            }
-            
-            /* Desktop Responsive */
-            .practice-input-section input {
-                width: 55px;
-                height: 38px;
-                font-size: 1.1rem;
-            }
-        }
-
-        /* Tablet Responsive */
-        @media (max-width: 1024px) {
-            .morse-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 10px;
-            }
-            
-            .practice-container {
-                padding: 30px;
-                max-width: 500px;
-            }
-            
-            .practice-morse-display {
-                font-size: 3rem;
-                min-height: 70px;
-            }
-            
-            .practice-input-section input {
-                width: 90px;
-                height: 55px;
-                font-size: 1.8rem;
-            }
+            box-shadow: 0 0 20px rgba(231, 76, 60, 0.4);
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 15px;
             }
 
-            .container {
-                padding: 0;
-            }
-            
             .header h1 {
                 font-size: 2rem;
                 flex-direction: column;
@@ -650,20 +619,15 @@
                 height: 32px;
             }
 
-            .glass-card {
-                padding: 20px;
-                margin-bottom: 20px;
-            }
-            
             .morse-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
+                grid-template-columns: 1fr;
+                gap: 12px;
             }
-            
+
             .controls {
                 flex-direction: column;
-                gap: 15px;
-                padding: 15px;
+                gap: 20px;
+                padding: 20px 0;
             }
 
             .wpm-control {
@@ -674,7 +638,7 @@
 
             .morse-elements {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
             }
 
             .element {
@@ -691,91 +655,51 @@
                 font-size: 1rem;
             }
 
-            .audio-status {
-                top: 10px;
-                right: 10px;
-                padding: 8px 15px;
-                font-size: 0.8rem;
+            .section-title {
+                font-size: 1.4rem;
+                margin: 40px 0 20px 0;
             }
 
-            .section-title {
-                font-size: 1.3rem;
-                margin: 30px 0 15px 0;
-            }
-            
-            /* Practice Mode Mobile */
             .practice-container {
-                padding: 20px;
+                padding: 25px;
                 margin: 10px;
-                max-width: calc(100vw - 20px);
             }
-            
+
             .practice-header {
                 flex-direction: column;
                 text-align: center;
                 gap: 15px;
             }
-            
+
             .practice-header h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
-            
-            .practice-stats {
-                justify-content: center;
-                gap: 10px;
-            }
-            
-            .practice-stats span {
-                font-size: 0.9rem;
-                padding: 6px 12px;
-            }
-            
+
             .practice-morse-display {
                 font-size: 2.5rem;
                 min-height: 60px;
                 padding: 15px;
             }
-            
+
             .practice-input-section input {
-                width: 60px;
-                height: 40px;
-                font-size: 1.2rem;
+                width: 70px;
+                height: 45px;
+                font-size: 1.3rem;
             }
-            
-            .practice-input-section label {
-                font-size: 1rem;
-            }
-            
-            .practice-completion h3 {
-                font-size: 2rem;
-            }
-            
-            .practice-completion p {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 10px 16px;
-                font-size: 0.85rem;
-            }
-            
-            .btn svg {
-                width: 14px;
-                height: 14px;
+
+            .practice-input-section > div {
+                flex-direction: column !important;
+                gap: 10px !important;
             }
         }
 
         @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-
             .morse-grid {
-                grid-template-columns: 1fr;
+                gap: 10px;
             }
 
             .morse-item {
-                padding: 12px;
+                padding: 15px;
             }
 
             .morse-code {
@@ -786,48 +710,18 @@
                 width: 32px;
                 height: 32px;
                 font-size: 0.9rem;
-                margin-right: 10px;
+                margin-right: 12px;
             }
 
-            .controls {
-                padding: 10px;
-            }
-            
-            /* Extra Small Mobile Practice */
-            .practice-container {
-                padding: 15px;
-                margin: 5px;
-            }
-            
-            .practice-header h2 {
-                font-size: 1.3rem;
-            }
-            
             .practice-morse-display {
                 font-size: 2rem;
                 min-height: 50px;
-                padding: 10px;
-            }
-            
-            .practice-input-section input {
-                width: 70px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-            
-            .practice-completion h3 {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 8px 14px;
-                font-size: 0.8rem;
             }
         }
 
         /* Performance optimizations */
         .morse-item,
-        .glass-card {
+        .aviation-item {
             contain: layout style;
         }
 
@@ -856,7 +750,7 @@
             <p>Master the language of dots and dashes!</p>
         </div>
 
-        <div class="morse-info glass-card">
+        <div class="morse-info">
             <h3>
                 <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10"/>
@@ -868,15 +762,17 @@
             <p>The code uses just two basic elements to represent all letters and numbers:</p>
             <div class="morse-elements">
                 <div class="element">
-                    <strong>Dot (·)</strong> - Short signal
+                    <strong>Dot (·)</strong>
+                    Short signal
                 </div>
                 <div class="element">
-                    <strong>Dash (−)</strong> - Long signal (3x dot length)
+                    <strong>Dash (−)</strong>
+                    Long signal (3x dot length)
                 </div>
             </div>
         </div>
 
-        <div class="controls glass-card">
+        <div class="controls">
             <div class="wpm-control">
                 <label for="wpm">
                     <svg class="speed-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -962,13 +858,26 @@
             </div>
             
             <div class="practice-content">
+
+                <!-- Practice Feedback Overlay -->
+                <div class="practice-feedback" id="practiceFeedback"></div>
+                
                 <div class="practice-morse-display" id="practiceMorseDisplay">
                     <!-- Morse code will be displayed here -->
                 </div>
                 
                 <div class="practice-input-section">
                     <label for="practiceInput">What letter is this?</label>
-                    <input type="text" id="practiceInput" maxlength="1" placeholder="?" autocomplete="off">
+                    <div style="display: flex; gap: 15px; align-items: center; justify-content: center; flex-wrap: wrap;">
+                        <input type="text" id="practiceInput" maxlength="1" placeholder="?" autocomplete="off">
+                        <button class="btn btn-secondary" onclick="playCurrentMorse()" title="Listen Again">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"/>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08"/>
+                            </svg>
+                            Listen Again
+                        </button>
+                    </div>
                     <button class="btn btn-primary" onclick="submitAnswer()">Submit</button>
                 </div>
             </div>
@@ -980,9 +889,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Practice Feedback Overlay -->
-    <div class="practice-feedback" id="practiceFeedback"></div>
 
     <div class="footer">
         <p>alvinunleashed.studio</p>
@@ -1157,6 +1063,13 @@
         function updateProgress() {
             const totalAnswered = 26 - practiceLetters.length - incorrectLetters.length;
             document.getElementById('practiceProgress').textContent = `${totalAnswered}/26`;
+        }
+
+        function playCurrentMorse() {
+            if (currentLetter && practiceMode) {
+                const morseCode = getMorseCode(currentLetter);
+                playMorseCode(morseCode);
+            }
         }
 
         function submitAnswer() {
