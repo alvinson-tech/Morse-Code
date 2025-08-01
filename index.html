@@ -79,7 +79,6 @@
             margin-bottom: 20px;
         }
 
-        /* Direct info display without containers */
         .morse-info {
             text-align: center;
             margin-bottom: 30px;
@@ -145,7 +144,6 @@
             font-size: 1rem;
         }
 
-        /* Optimized controls */
         .controls {
             display: flex;
             justify-content: center;
@@ -196,7 +194,6 @@
             box-shadow: 0 4px 12px rgba(20, 30, 40, 0.25);
         }
 
-        /* Optimized Button Styles */
         .btn {
             padding: 12px 20px;
             border: none;
@@ -255,7 +252,6 @@
             flex-shrink: 0;
         }
 
-        /* Optimized grid with better performance */
         .morse-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -263,7 +259,6 @@
             margin-bottom: 40px;
         }
 
-        /* Simplified morse items for better performance */
         .morse-item {
             display: flex;
             align-items: center;
@@ -389,7 +384,6 @@
             opacity: 1;
         }
 
-        /* Direct section titles */
         .section-title {
             font-size: 1.6rem;
             color: #1a252f;
@@ -442,7 +436,6 @@
             letter-spacing: 1px;
         }
 
-        /* Practice Mode Styles - Kept minimal for performance */
         .practice-screen {
             position: fixed;
             top: 0;
@@ -602,7 +595,6 @@
             box-shadow: 0 0 20px rgba(231, 76, 60, 0.4);
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             body {
                 padding: 15px;
@@ -719,13 +711,11 @@
             }
         }
 
-        /* Performance optimizations */
         .morse-item,
         .aviation-item {
             contain: layout style;
         }
 
-        /* Reduce motion for users who prefer it */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -856,16 +846,16 @@
                     </button>
                 </div>
             </div>
-            
+
             <div class="practice-content">
 
                 <!-- Practice Feedback Overlay -->
                 <div class="practice-feedback" id="practiceFeedback"></div>
-                
+
                 <div class="practice-morse-display" id="practiceMorseDisplay">
                     <!-- Morse code will be displayed here -->
                 </div>
-                
+
                 <div class="practice-input-section">
                     <label for="practiceInput">What letter is this?</label>
                     <div style="display: flex; gap: 15px; align-items: center; justify-content: center; flex-wrap: wrap;">
@@ -881,7 +871,7 @@
                     <button class="btn btn-primary" onclick="submitAnswer()">Submit</button>
                 </div>
             </div>
-            
+
             <div class="practice-completion" id="practiceCompletion" style="display: none;">
                 <h3>🎉 That's All Letters in Morse!</h3>
                 <p>Practise often to master the language of Dots and Dashes.</p>
@@ -897,7 +887,7 @@
     <div class="audio-status" id="audio-status">[>]</div>
 
     <script>
-        // Morse code mappings
+
         const morseCode = {
             'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
             'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
@@ -908,7 +898,6 @@
             '8': '---..', '9': '----.', ' ': '/'
         };
 
-        // Learning phrases
         const learningPhrases = {
             'A': 'a.<u>part</u>',
             'B': '<u>Bob</u>.is.the.man',
@@ -938,7 +927,6 @@
             'Z': '<u>Zing</u>.<u>Zang</u>.zo.zo',
         };
 
-        // Aviation alphabet mappings
         const aviationAlphabet = {
             'A': 'ALPHA', 'B': 'BRAVO', 'C': 'CHARLIE', 'D': 'DELTA', 'E': 'ECHO', 'F': 'FOXTROT',
             'G': 'GOLF', 'H': 'HOTEL', 'I': 'INDIA', 'J': 'JULIET', 'K': 'KILO', 'L': 'LIMA',
@@ -950,9 +938,9 @@
         function createAviationItem(character) {
             const item = document.createElement('div');
             item.className = 'aviation-item';
-            
+
             const phonetic = aviationAlphabet[character];
-            
+
             item.innerHTML = `
                 <div class="character-box">${character}</div>
                 <div class="aviation-content">
@@ -960,11 +948,10 @@
                     <div class="aviation-letter">Letter ${character}</div>
                 </div>
             `;
-            
+
             return item;
         }
 
-        // Practice Mode Variables
         let practiceMode = false;
         let practiceLetters = [];
         let incorrectLetters = [];
@@ -976,34 +963,27 @@
             practiceLetters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
             incorrectLetters = [];
             practiceProgress = 0;
-            
-            // Hide main content
+
             document.querySelector('.container').style.display = 'none';
             document.querySelector('.footer').style.display = 'none';
-            
-            // Show practice screen
+
             document.getElementById('practiceScreen').style.display = 'flex';
             document.getElementById('practiceCompletion').style.display = 'none';
-            
-            // Shuffle the letters array
+
             shuffleArray(practiceLetters);
-            
-            // Start first question
+
             nextQuestion();
         }
 
         function exitPractice() {
             practiceMode = false;
             currentLetter = '';
-            
-            // Show main content
+
             document.querySelector('.container').style.display = 'block';
             document.querySelector('.footer').style.display = 'block';
-            
-            // Hide practice screen
+
             document.getElementById('practiceScreen').style.display = 'none';
-            
-            // Clear input
+
             document.getElementById('practiceInput').value = '';
         }
 
@@ -1017,33 +997,28 @@
         function nextQuestion() {
             if (practiceLetters.length === 0) {
                 if (incorrectLetters.length > 0) {
-                    // Add incorrect letters back to practice
+
                     practiceLetters = [...incorrectLetters];
                     incorrectLetters = [];
                     shuffleArray(practiceLetters);
                 } else {
-                    // All letters completed correctly
+
                     showCompletion();
                     return;
                 }
             }
-            
-            // Get next letter
+
             currentLetter = practiceLetters.shift();
-            
-            // Update progress
+
             updateProgress();
-            
-            // Display morse code and play sound
+
             const morseCode = getMorseCode(currentLetter);
             document.getElementById('practiceMorseDisplay').textContent = morseCode;
-            
-            // Clear input and focus
+
             const input = document.getElementById('practiceInput');
             input.value = '';
             input.focus();
-            
-            // Play the morse code
+
             setTimeout(() => {
                 playMorseCode(morseCode);
             }, 500);
@@ -1074,24 +1049,23 @@
 
         function submitAnswer() {
             const userInput = document.getElementById('practiceInput').value.toUpperCase().trim();
-            
+
             if (!userInput) {
                 return;
             }
-            
+
             const feedback = document.getElementById('practiceFeedback');
-            
+
             if (userInput === currentLetter) {
-                // Correct answer
+
                 showFeedback('correct');
                 practiceProgress++;
             } else {
-                // Incorrect answer
+
                 showFeedback('incorrect');
                 incorrectLetters.push(currentLetter);
             }
-            
-            // Move to next question after feedback
+
             setTimeout(() => {
                 nextQuestion();
             }, 1000);
@@ -1100,7 +1074,7 @@
         function showFeedback(type) {
             const feedback = document.getElementById('practiceFeedback');
             feedback.className = `practice-feedback ${type}`;
-            
+
             setTimeout(() => {
                 feedback.className = 'practice-feedback';
             }, 500);
@@ -1111,11 +1085,8 @@
             document.querySelector('.practice-content').style.display = 'none';
         }
 
-        // Add Enter key support for practice input
         document.addEventListener('DOMContentLoaded', () => {
-            // ... existing code ...
-            
-            // Add event listener for practice input
+
             document.addEventListener('keydown', (e) => {
                 if (practiceMode && e.key === 'Enter') {
                     submitAnswer();
@@ -1123,7 +1094,6 @@
             });
         });
 
-        // Audio context for generating morse code sounds
         let audioContext;
         let currentPlayingElement = null;
 
@@ -1137,30 +1107,30 @@
             if (currentPlayingElement) {
                 currentPlayingElement.classList.remove('playing');
             }
-            
+
             if (element) {
                 element.classList.add('playing');
                 currentPlayingElement = element;
             }
-            
+
             const audioStatus = document.getElementById('audio-status');
             audioStatus.classList.add('show');
-            
+
             initAudio();
-            
+
             const wpm = parseInt(document.getElementById('wpm').value);
             const dotDuration = 1200 / wpm;
             const dashDuration = dotDuration * 3;
             const pauseDuration = dotDuration;
             const letterPause = dotDuration * 3;
             const wordPause = dotDuration * 7;
-            
+
             let currentTime = audioContext.currentTime;
-            
+
             for (let i = 0; i < code.length; i++) {
                 const symbol = code[i];
-                const frequency = 600; // Hz
-                
+                const frequency = 600; 
+
                 if (symbol === '.') {
                     playTone(frequency, currentTime, dotDuration / 1000);
                     currentTime += (dotDuration + pauseDuration) / 1000;
@@ -1173,7 +1143,7 @@
                     currentTime += wordPause / 1000;
                 }
             }
-            
+
             setTimeout(() => {
                 if (element) {
                     element.classList.remove('playing');
@@ -1188,18 +1158,18 @@
         function playTone(frequency, startTime, duration) {
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
-            
+
             oscillator.connect(gainNode);
             gainNode.connect(audioContext.destination);
-            
+
             oscillator.frequency.value = frequency;
             oscillator.type = 'sine';
-            
+
             gainNode.gain.setValueAtTime(0, startTime);
             gainNode.gain.linearRampToValueAtTime(0.3, startTime + 0.01);
             gainNode.gain.setValueAtTime(0.3, startTime + duration - 0.01);
             gainNode.gain.linearRampToValueAtTime(0, startTime + duration);
-            
+
             oscillator.start(startTime);
             oscillator.stop(startTime + duration);
         }
@@ -1207,10 +1177,10 @@
         function createMorseItem(character) {
             const item = document.createElement('div');
             item.className = 'morse-item';
-            
+
             const code = morseCode[character];
             const phrase = learningPhrases[character] || '';
-            
+
             item.innerHTML = `
                 <div class="character-box">${character}</div>
                 <div class="morse-content">
@@ -1223,30 +1193,27 @@
                     </svg>
                 </div>
             `;
-            
+
             item.addEventListener('click', () => {
                 playMorseCode(code, item);
             });
-            
+
             return item;
         }
 
         function populateGrids() {
             const lettersGrid = document.getElementById('letters-grid');
             const numbersGrid = document.getElementById('numbers-grid');
-            
-            // Populate letters A-Z
+
             for (let i = 65; i <= 90; i++) {
                 const letter = String.fromCharCode(i);
                 lettersGrid.appendChild(createMorseItem(letter));
             }
-            
-            // Populate numbers 0-9
+
             for (let i = 0; i <= 9; i++) {
                 numbersGrid.appendChild(createMorseItem(i.toString()));
             }
 
-            // Populate aviation alphabet A-Z
             const aviationGrid = document.getElementById('aviation-grid');
             for (let i = 65; i <= 90; i++) {
                 const letter = String.fromCharCode(i);
@@ -1254,19 +1221,16 @@
             }
         }
 
-        // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             populateGrids();
         });
 
-        // Handle audio context resume for browsers that require user interaction
         document.addEventListener('click', () => {
             if (audioContext && audioContext.state === 'suspended') {
                 audioContext.resume();
             }
         });
 
-        // Touch optimization for mobile
         if ('ontouchstart' in window) {
             document.addEventListener('touchstart', function() {}, {passive: true});
         }
